@@ -1,0 +1,26 @@
+{
+  "name": "noc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alelaalien/Noc.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alelaalien/Noc/issues"
+  },
+  "homepage": "https://github.com/alelaalien/Noc#readme",
+  "devDependencies": {
+    "@types/node": "^20.11.17",
+    "rimraf": "^5.0.5",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.3.3"
+  }
+}
