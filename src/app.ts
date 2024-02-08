@@ -1,4 +1,12 @@
+import { Server } from "./presentation/server";
 
-const hello: string = ('hello world');
+(async()=>{
 
-console.log(hello);
+    main();
+
+})();
+
+function main(){
+
+    Server.start();
+}
