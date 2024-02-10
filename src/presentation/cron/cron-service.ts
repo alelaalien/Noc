@@ -9,7 +9,7 @@ export class CronService{
 
         const job = new CronJob( cronTime, OnTick );
         job.start();
-        job.stop();
+        // job.stop();
         return job;
     }
 }

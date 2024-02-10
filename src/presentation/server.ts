@@ -1,5 +1,14 @@
 import { CheckService } from "../domain/use-cases/checks/check-service";
+import { FileSystemDatasource } from "../infrastructure/datasources/file-system.datasource";
+import { LogRepositoryImpl } from "../infrastructure/repositories/log.repository-impl";
 import { CronService } from "./cron/cron-service";
+
+// instancias
+
+const fileSystemRepository = new LogRepositoryImpl(
+    new FileSystemDatasource()
+);
+
 
 export class Server{
 
@@ -15,8 +24,10 @@ export class Server{
 
             console.log('running');
             new CheckService(
+               
                 ()=> console.log('ok'),
-                ()=> console.log('no ok')
+                ()=> console.log('no ok'),
+                fileSystemRepository
 
             ).execute(url);
 
