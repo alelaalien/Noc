@@ -1,6 +1,6 @@
 import { LogEntity, LogServerityLevelEnum } from "../../entities/log.entity";
 import { LogRepository } from "../../repository/log.repository";
-
+// ywhn adfz afro ffuq 
 interface ICheckService{
     execute(url: string) : Promise<boolean>;
 }
@@ -25,9 +25,11 @@ export class CheckService implements ICheckService{
 
             if(!result.ok) { throw new Error(`Error on check service at ${url}`);} 
 
-            const lowLog = new LogEntity(
-                `${url} working`,
-            LogServerityLevelEnum.low
+            const lowLog = new LogEntity({
+                message: `${url} working`,
+                level: LogServerityLevelEnum.low, 
+                origin: 'check-services.ts'
+                } 
             );
 
             this.logRepository.saveLog(lowLog);
@@ -41,12 +43,14 @@ export class CheckService implements ICheckService{
 
             this.error(`${err}`);
 
-            const lowLog = new LogEntity(
-                `${url} is not working`,
-                LogServerityLevelEnum.low
+            const highLog = new LogEntity({
+                message: `${url} is not working`,
+                level: LogServerityLevelEnum.high, 
+                origin: 'check-services.ts'
+                } 
             );
 
-            this.logRepository.saveLog(lowLog);
+            this.logRepository.saveLog(highLog);
 
             return false;
         }
